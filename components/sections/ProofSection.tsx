@@ -3,6 +3,15 @@
 import { motion } from "framer-motion";
 import { PROOF_POINTS } from "@/lib/portfolio-data";
 
+// Helper function to parse metric number from metric string
+function parseMetric(metric: string) {
+  // Extract first token (number/metric)
+  const parts = metric.split(" ");
+  const metricNumber = parts[0];
+  const metricTitle = parts.slice(1).join(" ");
+  return { metricNumber, metricTitle };
+}
+
 export function ProofSection() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -50,24 +59,44 @@ export function ProofSection() {
           viewport={{ once: true }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {PROOF_POINTS.map((point, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="card hover:shadow-md transition"
-            >
-              <div className="mb-4 inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">
-                {point.metric.split(" ")[0]}% or {point.metric.split(" ")[1]}
-              </div>
-              <h3 className="text-lg font-semibold text-[color:var(--foreground)] mb-2">
-                {point.metric}
-              </h3>
-              <p className="text-[color:var(--foreground)] mb-3 text-sm">
-                {point.description}
-              </p>
-              <p className="text-xs muted-2 italic">{point.context}</p>
-            </motion.div>
-          ))}
+          {PROOF_POINTS.map((point, index) => {
+            const { metricNumber, metricTitle } = parseMetric(point.metric);
+            return (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.3 }}
+                className="group relative"
+              >
+                {/* Card border + background */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-white/[0.02] border border-white/10 rounded-lg group-hover:border-white/20 transition-all duration-300" />
+
+                {/* Card content */}
+                <div className="relative p-6 sm:p-8 flex flex-col h-full">
+                  {/* Metric Number - Large and prominent */}
+                  <div className="text-4xl sm:text-5xl font-black text-[color:var(--accent)] mb-6 leading-tight">
+                    {metricNumber}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-lg sm:text-base font-semibold text-white mb-4 leading-snug">
+                    {metricTitle}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm text-gray-300 mb-6 leading-relaxed flex-grow">
+                    {point.description}
+                  </p>
+
+                  {/* Context Footer - Muted */}
+                  <p className="text-xs text-gray-500 leading-relaxed border-t border-white/5 pt-4">
+                    {point.context}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>
