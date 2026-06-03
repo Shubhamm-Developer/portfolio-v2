@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fbfdff;
+  --foreground: #0b1220;
+  --muted: #4b5563;
+  --muted-2: #6b7280;
+  --accent: #2563eb; /* brighter indigo */
+  --border: rgba(11, 18, 32, 0.06);
+
+  /* surfaces */
+  --surface: #ffffff;
+  --surface-2: #f1f5ff; /* subtle light blue wash */
+
+  /* inverted (for footer/hero actions) */
+  --inverted-background: #0b1220;
+  --inverted-foreground: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #070819; /* slightly brighter dark canvas */
+    --foreground: #e6eef6;
+    --muted: #9aa6b2;
+    --muted-2: #b6c3d1;
+    --accent: #60a5fa;
+    --border: rgba(230, 238, 246, 0.06);
+
+    --surface: #071026;
+    --surface-2: #0b1220;
+
+    --inverted-background: #e6eef6;
+    --inverted-foreground: #071126;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    system-ui,
+    -apple-system,
+    "Inter",
+    ui-sans-serif,
+    sans-serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utility components to unify spacing, cards and buttons */
+.container-max {
+  max-width: 64rem;
+  margin-inline: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+  .content-narrow {
+  max-width: 72rem;
+}
+
+  .section-padding {
+    @apply py-24 sm:py-32;
+  }
+
+  .section {
+    @apply py-24 sm:py-32;
+  }
+
+  .section-inner {
+    max-width: 66ch;
+    margin-left: 0; /* left-align content after hero */
+  }
+
+  .lead {
+    @apply text-lg text-[color:var(--muted)];
+    max-width: 60ch; /* improve readability */
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card {
+    background: color-mix(in srgb, var(--surface) 96%, transparent);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 6px 18px rgba(16, 24, 40, 0.03);
+    @apply overflow-hidden p-6; /* increase internal padding for cards */
+  }
+
+  .section-bg {
+    background: var(--surface-2);
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--background);
+    @apply px-4 py-2 rounded-lg font-semibold inline-block;
+  }
+
+  .btn-primary:hover {
+    filter: brightness(0.95);
+  }
+
+  .muted {
+    color: var(--muted);
+  }
+
+  .muted-2 {
+    color: var(--muted-2);
+  }
+
+  .footer-surface {
+    background: color-mix(in srgb, var(--surface) 90%, var(--accent) 10%);
+    color: var(--foreground);
+  }
+
+  .hero-surface {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent) 12%, var(--surface) 88%),
+      var(--surface)
+    );
+    color: var(--foreground);
+    border: 1px solid color-mix(in srgb, var(--accent) 8%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center; /* keep hero content centered */
+    text-align: center;
+  }
+
+  /* improve typography rhythm inside sections */
+  .section h1,
+  .section h2,
+  .section h3 {
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .prose {
+    max-width: 60ch; /* limit paragraph width site-wide */
+    line-height: 1.75;
+  }
+
+  /* card internal hierarchy spacing */
+  .card h2,
+  .card h3,
+  .card h4 {
+    margin-bottom: 0.75rem;
+  }
+
+  .card p {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+  /* Timeline visuals for case studies */
+  .timeline {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 1rem 2rem;
+    align-items: start;
+  }
+
+  .timeline-marker {
+    position: relative;
+    width: 48px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+  }
+
+  .timeline-marker::before {
+    content: "";
+    position: absolute;
+    top: 0.5rem;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: var(--border);
+    transform: translateX(-50%);
+  }
+
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 9999px;
+    background: var(--accent);
+    border: 2px solid var(--surface);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.12);
+    position: relative;
+    z-index: 10;
+    margin-top: 0.25rem;
+  }
+
