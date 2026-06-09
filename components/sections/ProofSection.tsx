@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion , Variants } from "framer-motion";
 import { PROOF_POINTS } from "@/lib/portfolio-data";
 
 // Helper function to parse metric number from metric string
@@ -24,7 +24,7 @@ export function ProofSection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants : Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -44,11 +44,11 @@ export function ProofSection() {
           className="mb-16 text-left"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-[color:var(--foreground)] mb-4">
-            Proven Results
+            Backend Engineering Focus
           </h2>
           <p className="lead section-inner">
-            Real outcomes from real projects. Numbers that matter for your
-            business.
+            Areas of backend development I am actively building and studying
+            through hands-on projects.
           </p>
         </motion.div>
 

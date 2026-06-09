@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ProofSection } from "@/components/sections/ProofSection";
 import { FeaturedCaseStudiesSection } from "@/components/sections/FeaturedCaseStudiesSection";
-import { ServicesSection } from "@/components/sections/ServicesSection";
+// import { ServicesSection } from "@/components/sections/ServicesSection";
 import { PhilosophySection } from "@/components/sections/PhilosophySection";
 import { CTASection } from "@/components/sections/CTASection";
 
@@ -28,7 +28,7 @@ export default function Home() {
       <HeroSection />
       <ProofSection />
       <FeaturedCaseStudiesSection />
-      <ServicesSection />
+      {/* <ServicesSection /> */}
       <PhilosophySection />
       <CTASection />
     </div>

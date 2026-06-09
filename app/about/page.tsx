@@ -24,10 +24,13 @@ export default function AboutPage() {
               What I Do
             </h2>
             <p className="muted mb-4 text-lg leading-relaxed">
-              I help businesses improve their backend systems. Whether your APIs
-              are slow, your database is struggling under load, or you're
-              dealing with mysterious production bugs, I work systematically to
-              identify root causes and implement solutions that actually stick.
+              I am a backend-focused developer currently building projects around
+authentication, PostgreSQL, Redis, background job processing, and API
+architecture.
+
+My focus is learning backend engineering through hands-on projects,
+studying production-ready patterns, and building systems that are
+maintainable, secure, and scalable.
             </p>
             <p className="muted text-lg leading-relaxed">
               My focus is on practical, measurable improvements: faster APIs,
@@ -37,7 +40,7 @@ export default function AboutPage() {
           </section>
 
           <section className="mb-12">
-            <h2 className="text-3xl font-bold text-[color:var(--foreground)] mb-4">
+            {/* <h2 className="text-3xl font-bold text-[color:var(--foreground)] mb-4">
               How I Approach Problems
             </h2>
             <div className="space-y-6">
@@ -58,8 +61,8 @@ export default function AboutPage() {
                 <p className="muted">
                   I dig deep to find root causes, not just symptoms. This means
                   understanding your architecture, data flows, query patterns,
-                  and where bottlenecks actually exist.
-                </p>
+                  and where bottlenecks actually exist. */}
+                {/* </p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-[color:var(--foreground)] mb-2">
@@ -81,9 +84,21 @@ export default function AboutPage() {
                   maintain improvements long-term.
                 </p>
               </div>
-            </div>
-          </section>
+            </div> */}
+            <h2 className="text-3xl font-bold text-[color:var(--foreground)] mb-4">
+  What I'm Learning
+</h2>
 
+<ul className="space-y-3 muted">
+  <li>• Authentication & Authorization (JWT, RBAC)</li>
+  <li>• PostgreSQL schema design and query optimization</li>
+  <li>• Redis caching and background job processing</li>
+  <li>• API design and validation patterns</li>
+  <li>• Scalable backend architecture fundamentals</li>
+  <li>• Deployment and production readiness</li>
+</ul> 
+          </section>
+{/* 
           <section className="mb-12">
             <h2 className="text-3xl font-bold text-[color:var(--foreground)] mb-4">
               Problems I Solve
@@ -137,11 +152,11 @@ export default function AboutPage() {
                 </span>
               </li>
             </ul>
-          </section>
+          </section> */}
 
           <section className="mb-12">
             <h2 className="text-3xl font-bold text-[color:var(--foreground)] mb-4">
-              Technical Expertise
+              Backend & API Development
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -149,10 +164,10 @@ export default function AboutPage() {
                   Backend & API Development
                 </h3>
                 <ul className="space-y-2 muted">
-                  <li>• Node.js / Express / NestJS</li>
-                  <li>• RESTful and GraphQL APIs</li>
-                  <li>• System design & architecture</li>
-                  <li>• Microservices patterns</li>
+                  <li>• Node.js</li>
+                  <li>• Express.js</li>
+                  <li>• REST APIs</li>
+                  <li>• Authentication Systems</li>
                 </ul>
               </div>
               <div>
@@ -160,10 +175,10 @@ export default function AboutPage() {
                   Databases & Performance
                 </h3>
                 <ul className="space-y-2 muted">
-                  <li>• PostgreSQL optimization</li>
-                  <li>• Query analysis & tuning</li>
-                  <li>• Caching strategies (Redis)</li>
-                  <li>• Data modeling</li>
+                  <li>• PostgreSQL</li>
+                  <li>• Query Optimization Fundamentals</li>
+                  <li>• Redis</li>
+                  <li>• Data Modeling</li>
                 </ul>
               </div>
               <div>
@@ -171,10 +186,10 @@ export default function AboutPage() {
                   Reliability & Operations
                 </h3>
                 <ul className="space-y-2 muted">
-                  <li>• Observability & monitoring</li>
-                  <li>• Error tracking & debugging</li>
-                  <li>• Incident response</li>
-                  <li>• Performance audits</li>
+                  <li>• Logging</li>
+                  <li>• Error Handling</li>
+                  <li>• Background Jobs</li>
+                  <li>• Monitoring Fundamentals</li>
                 </ul>
               </div>
               <div>
@@ -182,19 +197,19 @@ export default function AboutPage() {
                   Infrastructure
                 </h3>
                 <ul className="space-y-2 muted">
-                  <li>• AWS (RDS, EC2, Lambda)</li>
-                  <li>• Kubernetes basics</li>
-                  <li>• CI/CD pipelines</li>
-                  <li>• Load testing</li>
+                  <li>• Docker Basics</li>
+                  <li>• Linux</li>
+                  <li>• Deployment Workflows</li>
+                  <li>• CI/CD Fundamentals</li>
                 </ul>
               </div>
             </div>
           </section>
 
           <section className="mb-12">
-            <h2 className="text-3xl font-bold text-[color:var(--foreground)] mb-4">
+            {/* <h2 className="text-3xl font-bold text-[color:var(--foreground)] mb-4">
               Why Work With Me
-            </h2>
+            </h2> */}
             <ul className="space-y-4">
               <li className="flex items-start gap-4">
                 <div className="text-2xl">✓</div>
@@ -249,14 +264,14 @@ export default function AboutPage() {
         {/* CTA */}
         <div className="hero-surface rounded-lg p-8 sm:p-12">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-[color:var(--foreground)]">
-            Ready to Improve Your Backend?
+            Let's Connect
           </h2>
           <p className="lead mb-6">
-            Let's discuss your challenges. I offer free initial consultations to
-            understand your problems.
+            I'm always interested in discussing backend engineering,
+Node.js, PostgreSQL, Redis, system design, and software development.
           </p>
           <Link href="/contact" className="btn-primary">
-            Schedule a Consultation
+            Get In Touch
           </Link>
         </div>
       </div>

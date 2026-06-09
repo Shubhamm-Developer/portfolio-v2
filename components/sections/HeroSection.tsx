@@ -1,29 +1,28 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
-
+import { motion , Variants } from "framer-motion";
 const trustMetrics = [
   {
-    number: "45%",
-    label: "API Speed Improvement",
+    number: "Express.js",
+    label: "REST APIs & Middleware",
   },
   {
-    number: "99.98%",
-    label: "Uptime",
+    number: "PostgreSQL",
+    label: "Database Design & Query Optimization",
   },
   {
-    number: "10x",
-    label: "Query Performance",
+    number: "Redis",
+    label: "Caching & Background Processing",
   },
   {
-    number: "60%",
-    label: "Cost Savings",
+    number: "JWT",
+    label: "Authentication & Authorization",
   },
 ];
 
 export function HeroSection() {
-  const containerVariants = {
+  const containerVariants : Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -34,7 +33,7 @@ export function HeroSection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants : Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -59,13 +58,13 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center hero-surface overflow-hidden">
+    <section className="relative min-h-[75vh] flex items-center hero-surface overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_100%)]" />
       </div>
 
-      <div className="container-max py-32 relative z-10">
+      <div className="container-max py-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -74,16 +73,15 @@ export function HeroSection() {
         >
           {/* Premium headline with stronger hierarchy */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-[1.0] tracking-tight text-white">
-            Backend Engineer Who Fixes Slow APIs, Production Bugs, and Scaling
-            Bottlenecks
-          </h1>
+  Backend Developer Building Real-World Systems with Node.js, PostgreSQL & Redis
+</h1>
 
           {/* Refined paragraph with optimal line length */}
-          <p className="text-lg sm:text-xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto font-light">
-            I help businesses improve API performance, reliability, and
-            maintainability. If your backend is slow, unreliable, or hard to
-            maintain—let's fix it.
-          </p>
+         <p className="text-lg sm:text-xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto font-light">
+  Currently focused on backend engineering through hands-on projects involving
+  authentication, multi-tenant architectures, database design, caching,
+  background job processing, and API development.
+</p>
 
           {/* Enhanced CTA buttons with larger sizing */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
@@ -92,7 +90,7 @@ export function HeroSection() {
                 href="/case-studies"
                 className="btn-primary px-10 py-4 text-base font-semibold"
               >
-                View Case Studies
+                Explore Projects
               </Link>
             </motion.div>
 
@@ -101,17 +99,15 @@ export function HeroSection() {
                 href="/contact"
                 className="inline-block px-10 py-4 text-base font-semibold border border-[color:var(--accent)] text-[color:var(--accent)] rounded-lg hover:bg-[color:var(--accent)] hover:text-white transition-all duration-300"
               >
-                Let's Talk
+                About Me
               </Link>
             </motion.div>
           </div>
 
           {/* Specialization highlight */}
           <p className="text-sm text-gray-400 mb-16 font-medium tracking-wide">
-            Specializing in: API Performance • Database Optimization • System
-            Reliability • Backend Refactoring • Production Debugging
-          </p>
-
+  Express.js • PostgreSQL • Redis • Authentication • Background Jobs • API Design
+</p>
           {/* Trust Metrics Bar - Glass-style cards */}
           <motion.div
             variants={containerVariants}
@@ -130,7 +126,7 @@ export function HeroSection() {
 
                 {/* Content */}
                 <div className="relative px-4 sm:px-6 py-6 sm:py-8">
-                  <div className="text-2xl sm:text-3xl font-black text-white mb-2">
+                  <div className="text-lg sm:text-xl font-bold text-white mb-2">
                     {metric.number}
                   </div>
                   <div className="text-xs sm:text-sm text-gray-400 leading-snug">

@@ -13,6 +13,8 @@
 # testing
 /coverage
 
+repomix-output.xml
+portfolio.xml
 # next.js
 /.next/
 /out/
