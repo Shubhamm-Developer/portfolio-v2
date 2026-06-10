@@ -14,24 +14,33 @@ export async function POST(req: Request) {
       challenge,
       message,
     } = body;
-
-    if (!name || !email || !message) {
+if (
+  !name?.trim() ||
+  !email?.trim() ||
+  !message?.trim()
+) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
       );
     }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!emailRegex.test(email.trim())) {
+  return NextResponse.json(
+    { error: "Invalid email address" },
+    { status: 400 }
+  );
+}
 
     await connectDB();
-
-    await Contact.create({
-      name,
-      email,
-      company,
-      challenge,
-      message,
-    });
-
+await Contact.create({
+  name: name.trim(),
+  email: email.trim(),
+  company: company?.trim(),
+  challenge,
+  message: message.trim(),
+});
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
